@@ -14,23 +14,29 @@
 	margin-bottom: 5px;
 
 	// Result gets top border + sides + top border-radius only
-	.result-container {
-		.result {
-			overflow-y: hidden;
-			border: 1px solid var(--leany-border-subtle);
+	// In list views this is inside .result-container, in reports it's a direct child
+	.result-container .result,
+	>.result {
+		overflow-y: hidden;
+		border: 1px solid var(--leany-border-subtle);
+		border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+		border-bottom: none; // subsequent elements provide the bottom
+		background-color: var(--fg-color);
+
+		// Remove double-borders from frappe-datatable in report views
+		.datatable {
+			border: none !important;
+			border-radius: 0 !important;
+		}
+
+		// First row-container (header) is top of the card
+		.list-row-container:first-child {
 			border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-			border-bottom: none; // subsequent elements provide the bottom
-			background-color: var(--fg-color);
+		}
 
-			// First row-container (header) is top of the card
-			.list-row-container:first-child {
-				border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-			}
-
-			// Last row-container — no bottom radius (paging continues)
-			.list-row-container:last-child {
-				border-radius: 0;
-			}
+		// Last row-container — no bottom radius (paging continues)
+		.list-row-container:last-child {
+			border-radius: 0;
 		}
 	}
 }
