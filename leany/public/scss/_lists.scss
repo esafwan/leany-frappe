@@ -19,8 +19,7 @@
 			overflow-y: hidden;
 			border: 1px solid var(--leany-border-subtle);
 			border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
-			border-bottom: none; // paging area provides the bottom
-			overflow: hidden;
+			border-bottom: none; // subsequent elements provide the bottom
 			background-color: var(--fg-color);
 
 			// First row-container (header) is top of the card
@@ -341,10 +340,22 @@ input.list-header-checkbox {
 	}
 }
 
-// ─── Paging area ────────────────────────────────────────────
-// ─── Paging area — visually joins the card bottom ───────────
-// Gets side borders + bottom border + bottom radius to connect
-// with .result which only has top border + sides + top radius.
+// ─── Paging area & Comparison Message ───────────────────────
+// In report views, a .comparison-message can appear between
+// .result and .list-paging-area. Both need to visually connect.
+
+.comparison-message {
+	display: block;
+	border-left: 1px solid var(--leany-border-subtle);
+	border-right: 1px solid var(--leany-border-subtle);
+	border-top: 1px solid var(--leany-border-subtle); // Matches .result bottom edge
+	background-color: var(--fg-color);
+	padding: 12px 16px 2px; // Top padding, minimal bottom padding
+	color: var(--leany-text-muted);
+	font-size: var(--text-sm);
+	margin: 0 !important; // Override Frappe's margins
+}
+
 .list-paging-area,
 .footnote-area {
 	border: 1px solid var(--leany-border-subtle);
@@ -352,6 +363,11 @@ input.list-header-checkbox {
 	border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
 	padding: 10px 16px;
 	background-color: var(--fg-color);
+
+	// If it immediately follows a comparison message, remove the double top border
+	.comparison-message+& {
+		border-top: none;
+	}
 
 	// Override the pill-style btn-group from _buttons.scss
 	.btn-group {
