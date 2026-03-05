@@ -97,6 +97,8 @@
     margin: 0;
     padding: var(--padding-xs) var(--padding-md);
     border-bottom: none;
+    // Remove bg in list views (Frappe sets --card-bg by default)
+    background-color: transparent !important;
 
     .form-group {
         padding: 0 10px 0 0;
@@ -145,75 +147,80 @@
             align-items: center;
         }
     }
+}
 
-    .filter-section {
-        display: flex;
-        padding: 0;
+// Restore bg for editable forms (settings, etc.)
+.editable-form .page-form {
+    background-color: var(--card-bg) !important;
+}
+
+.filter-section {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    gap: 0;
+
+    // Override the pill/tab .btn-group wrapper styles from _buttons.scss
+    .btn-group {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        gap: 2px;
+    }
+
+    // Ghost-style buttons matching the reference design
+    // Must use .btn.btn-default to override _buttons.scss specificity
+    .btn.btn-default {
+        height: var(--input-height);
+        display: inline-flex;
         align-items: center;
-        gap: 0;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: var(--leany-text-muted) !important;
+        font-weight: var(--weight-regular);
+        font-size: var(--text-sm);
+        padding: 4px 8px;
+        border-radius: var(--border-radius-sm) !important;
 
-        // Override the pill/tab .btn-group wrapper styles from _buttons.scss
-        .btn-group {
-            background-color: transparent !important;
-            border: none !important;
-            padding: 0 !important;
-            gap: 2px;
+        &:hover {
+            color: var(--leany-text-primary) !important;
+            background-color: var(--leany-bg-hover) !important;
+            transform: none;
         }
 
-        // Ghost-style buttons matching the reference design
-        // Must use .btn.btn-default to override _buttons.scss specificity
-        .btn.btn-default {
-            height: var(--input-height);
-            display: inline-flex;
-            align-items: center;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-            color: var(--leany-text-muted) !important;
-            font-weight: var(--weight-regular);
-            font-size: var(--text-sm);
-            padding: 4px 8px;
-            border-radius: var(--border-radius-sm) !important;
-
-            &:hover {
-                color: var(--leany-text-primary) !important;
-                background-color: var(--leany-bg-hover) !important;
-                transform: none;
-            }
-
-            .icon,
-            svg {
-                opacity: 0.5;
-            }
+        .icon,
+        svg {
+            opacity: 0.5;
         }
     }
+}
 
-    // Vertical divider between filter-selector and sort-selector
-    .filter-selector {
-        border-left: 1px solid var(--leany-border-subtle);
-        padding-right: 4px;
-        margin-left: 8px;
+// Vertical divider between filter-selector and sort-selector
+.filter-selector {
+    border-left: 1px solid var(--leany-border-subtle);
+    padding-right: 4px;
+    margin-left: 8px;
+}
+
+.filter-selector .btn-group {
+    margin: var(--margin-xs);
+    align-items: center;
+
+    .filter-label {
+        display: inline-block;
+        font-weight: var(--weight-semibold);
+        color: var(--leany-text-primary);
+        background-color: var(--control-bg);
+        min-width: 21px;
+        border-radius: 22px;
+        margin-left: 6px;
     }
+}
 
-    .filter-selector .btn-group {
-        margin: var(--margin-xs);
-        align-items: center;
-
-        .filter-label {
-            display: inline-block;
-            font-weight: var(--weight-semibold);
-            color: var(--leany-text-primary);
-            background-color: var(--control-bg);
-            min-width: 21px;
-            border-radius: 22px;
-            margin-left: 6px;
-        }
-    }
-
-    .sort-selector .btn-group {
-        margin: var(--margin-xs) 0 var(--margin-xs) 0;
-        align-items: center;
-    }
+.sort-selector .btn-group {
+    margin: var(--margin-xs) 0 var(--margin-xs) 0;
+    align-items: center;
 }
 
 // ─── Avatar / User components ───────────────────────────────
