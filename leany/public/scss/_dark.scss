@@ -1,101 +1,102 @@
 // Leany Design System - Dark Mode Overrides
-// Deep, high-contrast dark theme inspired by Linear's dark mode
+// Refined dark palette based on reference design
 // Uses Frappe's actual [data-theme="dark"] selector
 // =============================================================
 
 [data-theme="dark"] {
-	// ─── Background surfaces ────────────────────────────────
-	--bg-color: #101012;
-	--fg-color: #1c1d21;
-	--control-bg: #1c1d21;
-	--control-bg-on-gray: #252629;
-	--disabled-control-bg: #1a1b1e;
+	// ─── Surface hierarchy ───────────────────────────────────
+	--bg-color: #0f1117;
+	--fg-color: #181b23;
+	--control-bg: #232834;
+	--control-bg-on-gray: #1e222c;
+	--disabled-control-bg: #181b23;
 
 	// Leany-specific surfaces
-	--leany-bg-sidebar: #0a0a0b;
-	--leany-bg-elevated: #1c1d21;
+	--leany-bg-sidebar: #181b23;
+	--leany-bg-elevated: #1e222c;
 	--leany-bg-hover: rgba(255, 255, 255, 0.05);
 
-	// ─── Frappe sidebar variables (must override here too) ───
+	// ─── Frappe sidebar variables ────────────────────────────
 	--sidebar-hover-color: rgba(255, 255, 255, 0.05);
 	--sidebar-active-color: rgba(255, 255, 255, 0.08);
-	--sidebar-border-color: rgba(255, 255, 255, 0.08);
-	--divider-color: rgba(255, 255, 255, 0.06);
-	--surface-menu-bar: #0a0a0b;
+	--sidebar-border-color: #2a2f3a;
+	--divider-color: #22262f;
+	--surface-menu-bar: #181b23;
 
-	// ─── Borders ────────────────────────────────────────────
-	--border-color: rgba(255, 255, 255, 0.08);
-	--leany-border-subtle: rgba(255, 255, 255, 0.08);
-	--leany-border-strong: rgba(255, 255, 255, 0.12);
-	--dark-border-color: rgba(255, 255, 255, 0.12);
+	// ─── Borders ─────────────────────────────────────────────
+	--border-color: #2a2f3a;
+	--leany-border-subtle: #22262f;
+	--leany-border-strong: #2a2f3a;
+	--dark-border-color: #2a2f3a;
 
-	// ─── Text ───────────────────────────────────────────────
-	--text-color: #eeeeee;
-	--heading-color: #eeeeee;
-	--text-muted: #6b6f76;
-	--text-light: #6b6f76;
-	--leany-text-primary: #eeeeee;
-	--leany-text-secondary: #9b9ca0;
-	--leany-text-muted: #6b6f76;
+	// ─── Text ────────────────────────────────────────────────
+	--text-color: #e1e4ea;
+	--heading-color: #e1e4ea;
+	--text-muted: #8b919e;
+	--text-light: #5c6270;
+	--leany-text-primary: #e1e4ea;
+	--leany-text-secondary: #8b919e;
+	--leany-text-muted: #5c6270;
 
-	// ─── Accent ─────────────────────────────────────────────
-	--leany-accent: #eeeeee;
+	// ─── Accent / primary ────────────────────────────────────
+	--leany-accent: #e1e4ea;
 	--leany-accent-hover: #ffffff;
-	--btn-primary: #eeeeee;
+	--btn-primary: #e1e4ea;
 	--btn-primary-dark: #ffffff;
-	--btn-primary-text: #1c1c1c;
+	--btn-primary-text: #0f1117;
 
-	// ─── Focus ──────────────────────────────────────────────
-	--leany-focus-ring: #eeeeee;
-	--focus-default: 0 0 0 2px rgba(255, 255, 255, 0.3);
-	--focus-blue: 0 0 0 2px rgba(255, 255, 255, 0.3);
+	// ─── Focus ───────────────────────────────────────────────
+	--leany-focus-ring: #e1e4ea;
+	--focus-default: 0 0 0 2px rgba(225, 228, 234, 0.25);
+	--focus-blue: 0 0 0 2px rgba(225, 228, 234, 0.25);
 
-	// ─── Cards ──────────────────────────────────────────────
-	--card-bg: #1c1d21;
-	--card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+	// ─── Cards ───────────────────────────────────────────────
+	--card-bg: #1e222c;
+	--card-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px #22262f;
 
-	// ─── Shadows ────────────────────────────────────────────
-	--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
-	--shadow-base: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
-	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
-	--shadow-lg: 0 16px 70px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
-	--shadow-xl: 0 8px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.06);
-	--shadow-2xl: 0 16px 70px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+	// ─── Shadows ─────────────────────────────────────────────
+	--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px #22262f;
+	--shadow-base: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px #22262f;
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.4), 0 0 0 1px #22262f;
+	--shadow-lg: 0 16px 70px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px #22262f;
+	--shadow-xl: 0 8px 30px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px #22262f;
+	--shadow-2xl: 0 16px 70px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 0 1px #22262f;
 
-	// ─── List view overrides ────────────────────────────────
+	// ─── List view ───────────────────────────────────────────
 	--highlight-color: rgba(255, 255, 255, 0.03);
-	--subtle-fg: #1c1d21;
+	--subtle-fg: #181b23;
+	--list-header-text-color: #5c6270;
+	--list-row-border-color: #22262f;
+	--list-row-name-color: #e1e4ea;
+	--list-row-text-color: #8b919e;
+	--list-meta-color: #5c6270;
+	--list-row-hover-bg: rgba(255, 255, 255, 0.03);
+	--list-row-selected-bg: rgba(255, 255, 255, 0.05);
 
-	// List view tokens (dark equivalents of _variables.scss)
-	--list-header-text-color: #6b6f76;
-	--list-row-border-color: rgba(255, 255, 255, 0.06);
-	--list-row-name-color: #eeeeee;
-	--list-row-text-color: #9b9ca0;
-	--list-meta-color: #6b6f76;
-	--list-row-hover-bg: rgba(255, 255, 255, 0.04);
-	--list-row-selected-bg: rgba(255, 255, 255, 0.06);
+	// ─── Destructive ─────────────────────────────────────────
+	--leany-destructive: #ff6b6b;
 
-	// ─── Destructive ────────────────────────────────────────
-	--leany-destructive: #e02830;
+	// ─── Link color ──────────────────────────────────────────
+	--invert-neutral: #6ea8fe;
 
-	// ─── Alerts ─────────────────────────────────────────────
-	--alert-bg-info: rgba(79, 70, 229, 0.15);
-	--alert-text-info: #a5b4fc;
-	--alert-bg-success: rgba(22, 163, 74, 0.15);
-	--alert-text-success: #86efac;
-	--alert-bg-warning: rgba(217, 119, 6, 0.15);
-	--alert-text-warning: #fcd34d;
-	--alert-bg-danger: rgba(220, 38, 38, 0.15);
-	--alert-text-danger: #fca5a5;
+	// ─── Alerts ──────────────────────────────────────────────
+	--alert-bg-info: rgba(110, 168, 254, 0.12);
+	--alert-text-info: #6ea8fe;
+	--alert-bg-success: rgba(68, 255, 170, 0.12);
+	--alert-text-success: #4fa;
+	--alert-bg-warning: rgba(255, 193, 7, 0.12);
+	--alert-text-warning: #ffc107;
+	--alert-bg-danger: rgba(255, 107, 107, 0.12);
+	--alert-text-danger: #ff6b6b;
 
-	// ─── Scrollbar for dark ─────────────────────────────────
+	// ─── Scrollbar ───────────────────────────────────────────
 	&::-webkit-scrollbar-thumb {
-		background: rgba(128, 128, 128, 0.3);
+		background: rgba(255, 255, 255, 0.1);
 	}
 
-	// ─── Selection ──────────────────────────────────────────
+	// ─── Selection ───────────────────────────────────────────
 	::selection {
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.15);
 	}
 }
