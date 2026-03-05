@@ -1,0 +1,109 @@
+// Leany Design System - Kanban View Overrides
+// Clean kanban board targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/kanban.scss
+// =============================================================
+
+// ─── Override Frappe's kanban CSS variables ─────────────────
+:root {
+    --kanban-column-bg: var(--leany-bg-sidebar);
+    --kanban-card-bg: var(--card-bg);
+    --kanban-card-hover-bg: var(--card-bg);
+    --kanban-new-card-bg: var(--control-bg);
+    --kanban-new-card-hover-bg: var(--fg-color);
+}
+
+[data-theme="dark"] {
+    --kanban-column-bg: #151517;
+    --kanban-card-bg: var(--card-bg);
+    --kanban-new-card-bg: #1a1b1e;
+    --kanban-new-card-hover-bg: var(--card-bg);
+}
+
+// ─── Kanban board ───────────────────────────────────────────
+.kanban {
+    gap: 0.5em;
+    margin: var(--margin-sm);
+
+    .kanban-column {
+        border-radius: var(--border-radius);
+        padding: var(--padding-md);
+        background-color: var(--kanban-column-bg);
+
+        // Add card button
+        .add-card {
+            color: var(--leany-text-muted);
+            background-color: var(--bg-color);
+            border-radius: var(--border-radius-md);
+            transition: all 100ms ease;
+
+            &:hover {
+                color: var(--leany-text-primary);
+            }
+        }
+
+        // Column header
+        .kanban-column-header {
+            margin-bottom: 15px;
+            font-weight: var(--weight-medium);
+            font-size: 12px;
+        }
+
+        // Column title
+        .kanban-column-title {
+            color: var(--leany-text-primary);
+
+            .kanban-title {
+                font-weight: var(--weight-semibold);
+                margin-left: var(--margin-sm);
+            }
+        }
+
+        // Card
+        .kanban-cards .kanban-card-wrapper .kanban-card {
+            border: 1px solid var(--leany-border-subtle);
+            box-shadow: none;
+            border-radius: var(--border-radius);
+            background-color: var(--kanban-card-bg);
+
+            .kanban-card-body {
+                padding: var(--padding-md);
+
+                .kanban-title-area {
+                    font-size: var(--text-md);
+                    font-weight: var(--weight-medium);
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+
+    // Card hover
+    .kanban-card:hover,
+    .new-card-area,
+    .edit-card-area {
+        box-shadow: var(--shadow-base);
+    }
+
+    // Add new column
+    .kanban-column.add-new-column {
+        color: var(--leany-text-muted);
+        background-color: transparent;
+
+        .kanban-column-title.compose-column {
+            border: 1px dashed var(--leany-border-strong);
+            border-radius: var(--border-radius);
+            transition: background-color 100ms ease;
+
+            &:hover {
+                background-color: var(--kanban-column-bg);
+            }
+        }
+    }
+
+    // Text area in new/edit card
+    .new-card-area textarea,
+    .edit-card-area textarea {
+        color: var(--leany-text-primary);
+        font-size: 12px;
+    }
+}

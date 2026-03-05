@@ -1,0 +1,463 @@
+// Leany Design System - Page Layout & Misc Overrides
+// Clean page layout targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/page.scss, common/global.scss
+// Design ref: leany-ref - content boxed within card/border
+// =============================================================
+
+// ─── Frappe card — give it a real card look ─────────────────
+.frappe-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    box-shadow: none;
+    border: 1px solid var(--leany-border-subtle);
+}
+
+.layout-main-section.frappe-card {
+    background-color: var(--fg-color);
+    overflow: hidden;
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+}
+
+// ─── Page container ─────────────────────────────────────────
+.page-container {
+    background-color: var(--bg-color);
+}
+
+// ─── Page body ──────────────────────────────────────────────
+.page-body {
+    background-color: var(--bg-color);
+    padding: 0;
+}
+
+// ─── Fix full width: remove the form-sidebar-width constraint ──
+// The right-side white space occurs because Frappe calculates
+// layout-main-section-wrapper width as 100% - sidebar width.
+// When no sidebar, ensure full width.
+.layout-main-section-wrapper {
+    flex: 1 0 80%;
+    width: 80%;
+}
+
+// Content area should be boxed in a card with proper padding
+// like the leany-ref issues page
+.layout-main {
+    display: flex;
+    flex-direction: row;
+    padding: var(--padding-md);
+    gap: var(--padding-md);
+}
+
+// ─── Layout side section (form sidebar) ─────────────────────
+.layout-side-section {
+    font-size: var(--text-sm);
+    color: var(--leany-text-secondary);
+    border-left: 1px solid var(--leany-border-subtle);
+    padding-left: var(--padding-md);
+
+    .sidebar-label {
+        font-size: 11px;
+        font-weight: var(--weight-semibold);
+        color: var(--leany-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+}
+
+// ─── Form sidebar (right side of form) ──────────────────────
+.form-sidebar {
+    .sidebar-menu .sidebar-label {
+        font-size: 11px;
+        font-weight: var(--weight-semibold);
+        color: var(--leany-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .form-assignments,
+    .form-shared,
+    .form-tags,
+    .liked-by {
+        .btn {
+            font-size: var(--text-sm);
+            color: var(--leany-text-secondary);
+        }
+    }
+}
+
+// ─── Page actions (primary/secondary buttons in page head) ──
+.page-head .page-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+// ─── Filter section (list view filters) ─────────────────────
+.page-form {
+    margin: 0;
+    padding: var(--padding-xs) var(--padding-md);
+    border-bottom: none;
+
+    .form-group {
+        padding: 0 10px 0 0;
+        margin: 8px 0;
+
+        // Filter inputs should also have visible borders
+        .form-control {
+            border: 1px solid var(--leany-border-subtle);
+            height: var(--input-height);
+        }
+
+        .input-group {
+            .input-group-btn {
+                display: flex;
+            }
+
+            .btn {
+                height: var(--input-height);
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid var(--leany-border-subtle);
+                border-left: none;
+                margin: 0;
+                box-shadow: none;
+
+                &:hover,
+                &:focus {
+                    background-color: var(--leany-bg-hover);
+                }
+            }
+        }
+    }
+
+    .standard-filter-section {
+        flex-wrap: wrap;
+        flex: 1;
+        align-items: center;
+
+        .form-group {
+            min-width: 150px;
+        }
+
+        .btn {
+            height: var(--input-height);
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+
+    .filter-section {
+        display: flex;
+        padding: 0;
+        align-items: center;
+        gap: 0;
+
+        // Override the pill/tab .btn-group wrapper styles from _buttons.scss
+        .btn-group {
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            gap: 2px;
+        }
+
+        // Ghost-style buttons matching the reference design
+        // Must use .btn.btn-default to override _buttons.scss specificity
+        .btn.btn-default {
+            height: var(--input-height);
+            display: inline-flex;
+            align-items: center;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: var(--leany-text-muted) !important;
+            font-weight: var(--weight-regular);
+            font-size: var(--text-sm);
+            padding: 4px 8px;
+            border-radius: var(--border-radius-sm) !important;
+
+            &:hover {
+                color: var(--leany-text-primary) !important;
+                background-color: var(--leany-bg-hover) !important;
+                transform: none;
+            }
+
+            .icon,
+            svg {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    // Vertical divider between filter-selector and sort-selector
+    .filter-selector {
+        border-left: 1px solid var(--leany-border-subtle);
+        padding-right: 4px;
+        margin-left: 8px;
+    }
+
+    .filter-selector .btn-group {
+        margin: var(--margin-xs);
+        align-items: center;
+
+        .filter-label {
+            display: inline-block;
+            font-weight: var(--weight-semibold);
+            color: var(--leany-text-primary);
+            background-color: var(--control-bg);
+            min-width: 21px;
+            border-radius: 22px;
+            margin-left: 6px;
+        }
+    }
+
+    .sort-selector .btn-group {
+        margin: var(--margin-xs) 0 var(--margin-xs) 0;
+        align-items: center;
+    }
+}
+
+// ─── Avatar / User components ───────────────────────────────
+.avatar {
+    border-radius: var(--border-radius-full);
+}
+
+.avatar-group {
+    &:hover.overlap {
+        .avatar:not(:first-child) {
+            margin-left: calc(-1 * var(--margin-sm));
+        }
+    }
+}
+
+// ─── Indicator dots ─────────────────────────────────────────
+.indicator-pill {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    border-radius: var(--border-radius-full);
+}
+
+// ─── Keyboard shortcut badge ────────────────────────────────
+.keyboard-shortcut,
+.shortcut-key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    font-size: 10px;
+    font-weight: var(--weight-medium);
+    color: var(--leany-text-muted);
+    background: var(--leany-bg-sidebar);
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: 4px;
+    line-height: 1;
+}
+
+// ─── Awesomebar modal (command palette) ─────────────────────
+// Design ref: leany-ref command-palette.tsx
+// - 580px max width
+// - 12px border-radius
+// - Search input: 44px height, 15px font, icon left-aligned
+// - Results: padded list items with section headers
+// - Keyboard shortcuts right-aligned
+
+.navbar-modal-wrapper {
+    .modal-dialog {
+        max-width: 580px;
+        margin-top: 15vh;
+    }
+
+    .modal-content {
+        border: 1px solid var(--leany-border-strong);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        background-color: var(--leany-bg-elevated);
+    }
+
+    // ─── Modal Search Icon & Divider ────────────────────────
+    .modal-search-icon {
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: auto;
+        height: 48px;
+        opacity: 0.4;
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+    }
+
+    .modal-divider {
+        display: none; // hide frappe's native divider, we'll use input bottom border
+    }
+
+    .awesomplete {
+        width: 100%;
+
+        input {
+            height: 48px;
+            font-size: 15px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--leany-border-subtle);
+            padding-left: 48px !important; // Room for absolutely positioned icon
+            padding-right: 16px !important;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-radius: 0;
+            color: var(--leany-text-primary);
+            outline: none;
+            box-shadow: none;
+            width: 100% !important;
+
+            &::placeholder {
+                color: var(--leany-text-muted);
+                font-weight: normal;
+            }
+
+            &:focus {
+                box-shadow: none;
+                border-bottom: 1px solid var(--leany-border-subtle) !important;
+            }
+        }
+
+        ul {
+            position: relative;
+            background-color: transparent;
+            border: none;
+            border-radius: unset;
+            box-shadow: none;
+            margin-top: 0;
+            padding: 8px 4px;
+            max-height: 340px;
+            overflow-y: auto;
+
+            >li,
+            >[role="option"] {
+                padding: 8px 12px;
+                border-radius: var(--border-radius-sm);
+                font-size: 13px;
+                font-weight: var(--weight-medium);
+                color: var(--leany-text-primary);
+
+                &:hover,
+                &[aria-selected="true"] {
+                    background-color: var(--leany-bg-hover);
+                }
+            }
+        }
+
+        ul[hidden] {
+            display: block !important;
+        }
+    }
+
+    .modal-divider {
+        background-color: var(--leany-border-subtle);
+    }
+}
+
+// Command palette footer — keyboard indicators
+.awesomebar-modal-footer {
+    font-size: 12px;
+    padding: 8px 16px;
+    border-top: 1px solid var(--leany-border-subtle);
+    background-color: var(--leany-bg-elevated);
+
+    .help-navigation {
+        display: flex;
+        gap: var(--margin-md);
+
+        .help-item-navigate {
+            display: flex;
+            gap: var(--margin-xs);
+            align-items: center;
+        }
+
+        .help-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 5px;
+            font-size: 10px;
+            font-weight: var(--weight-medium);
+            color: var(--leany-text-muted);
+            background-color: var(--control-bg);
+            border: 1px solid var(--leany-border-subtle);
+            border-radius: 4px;
+            line-height: 1;
+        }
+
+        .help-item-escape {
+            padding: 2px 6px;
+        }
+    }
+}
+
+// ─── Comment box — boxed with proper padding ───────────────
+.comment-box {
+    margin-top: var(--margin-lg);
+    padding: var(--padding-md);
+    border: none !important;
+    border-radius: 0;
+    background-color: var(--fg-color);
+
+    .comment-input-header {
+        margin-bottom: var(--margin-sm);
+
+        .comment-title {
+            font-size: 16px;
+            font-weight: var(--weight-medium);
+            color: var(--leany-text-primary);
+        }
+
+        .comment-count {
+            color: var(--leany-text-muted);
+        }
+    }
+
+    .comment-input-container {
+        .frappe-control .ql-editor {
+            background-color: var(--control-bg) !important;
+            border: 1px solid var(--leany-border-subtle);
+            border-radius: var(--border-radius-sm);
+            min-height: 24px;
+            padding: 6px;
+        }
+    }
+}
+
+// ─── Form footer (activity/timeline area) — boxed ───────────
+.form-footer {
+    margin: var(--margin-md) auto;
+    padding: var(--padding-md);
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+    background-color: var(--fg-color);
+
+    h5 {
+        margin: 15px 0;
+        font-weight: var(--weight-semibold);
+        color: var(--leany-text-primary);
+    }
+
+    .after-save {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+// ─── Empty state / No data ──────────────────────────────────
+.no-result-message,
+.msg-box {
+    color: var(--leany-text-muted);
+    font-size: var(--text-base);
+
+    .btn {
+        margin-top: var(--margin-sm);
+    }
+}

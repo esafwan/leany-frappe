@@ -1,0 +1,145 @@
+// Leany Design System - Utility Classes
+// Common utility patterns for Leany design
+// =============================================================
+
+// ─── Keyboard shortcut badge ────────────────────────────────
+.kbd-key,
+kbd {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	height: 20px;
+	padding: 0 5px;
+	font-size: 10px;
+	font-weight: var(--weight-medium);
+	font-family: var(--font-stack);
+	color: var(--leany-text-muted);
+	background: var(--leany-bg-sidebar);
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: 4px;
+	line-height: 1;
+}
+
+// ─── Status indicators ──────────────────────────────────────
+.indicator {
+	font-size: var(--text-sm);
+
+	&::before {
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		margin-right: 6px;
+	}
+}
+
+// ─── Avatar ─────────────────────────────────────────────────
+.avatar {
+	border-radius: var(--border-radius-full);
+
+	.avatar-frame {
+		border-radius: var(--border-radius-full);
+	}
+}
+
+.avatar-small {
+	width: 20px;
+	height: 20px;
+}
+
+.avatar-medium {
+	width: 28px;
+	height: 28px;
+}
+
+// ─── Divider ────────────────────────────────────────────────
+hr,
+.divider {
+	border: none;
+	border-top: 1px solid var(--leany-border-subtle);
+	margin: 8px 0;
+}
+
+// ─── Empty state ────────────────────────────────────────────
+.no-result,
+.empty-state {
+	text-align: center;
+	padding: 32px 16px;
+	color: var(--leany-text-muted);
+	font-size: var(--text-base);
+
+	.empty-state-icon {
+		opacity: 0.4;
+		margin-bottom: 12px;
+	}
+}
+
+// ─── Frappe-specific overrides ──────────────────────────────
+// Page container background
+.page-container {
+	background-color: var(--bg-color);
+}
+
+// Layout main section
+.layout-main-section {
+	background-color: var(--bg-color);
+}
+
+// Workspace page — remove box-shadow, use bg-color not fg-color
+[data-page-route=Workspaces] .layout-main-section {
+	background-color: var(--bg-color);
+	box-shadow: none;
+	padding: var(--padding-sm) var(--padding-md);
+}
+
+// Comment box
+.comment-box {
+	border: none !important;
+	border-radius: var(--border-radius-md);
+	overflow: hidden;
+
+	.comment-input-header {
+		border-bottom: 1px solid var(--leany-border-subtle);
+		padding: 8px 12px;
+		margin-bottom: 18px;
+	}
+
+	.ql-editor {
+		font-size: var(--text-base);
+		font-family: var(--font-stack);
+		padding: 12px;
+	}
+}
+
+// Timeline
+.timeline-item {
+	padding: 8px 0;
+	border-bottom: 1px solid var(--leany-border-subtle);
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	.timeline-content {
+		font-size: var(--text-base);
+	}
+
+	.timeline-message-box {
+		border: 1px solid var(--leany-border-subtle);
+		border-radius: var(--border-radius-md);
+		background-color: var(--leany-bg-elevated);
+	}
+}
+
+// Like button
+.like-active-item .like-action {
+	color: var(--leany-accent);
+}
+
+// Link field indicator
+.link-field .awesomplete>ul {
+	border: 1px solid var(--leany-border-strong);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-xl);
+	background-color: var(--leany-bg-elevated);
+}

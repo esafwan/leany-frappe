@@ -1,0 +1,190 @@
+// Leany Design System - Workspace & Widget Overrides
+// Clean workspace widgets targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/desktop.scss
+// =============================================================
+
+// ─── Widget group ───────────────────────────────────────────
+.widget-group {
+    margin-bottom: var(--margin-2xl);
+
+    .widget-group-head {
+        .widget-group-title {
+            color: var(--leany-text-primary);
+            font-size: var(--text-lg);
+            font-weight: var(--weight-semibold);
+            margin-bottom: var(--margin-md);
+        }
+    }
+}
+
+// ─── Widget base ────────────────────────────────────────────
+.widget {
+    padding: 7px;
+    border-radius: var(--border-radius-md);
+    background-color: var(--card-bg);
+
+    &.border {
+        border: 1px solid var(--leany-border-subtle);
+    }
+
+    &.widget-shadow:hover {
+        box-shadow: var(--shadow-base);
+    }
+
+    .widget-head {
+        .widget-label .widget-title {
+            font-size: var(--text-base);
+            font-weight: var(--weight-medium);
+            color: var(--leany-text-primary);
+            line-height: 1.3em;
+            cursor: default;
+
+            svg {
+                flex: none;
+                margin-right: 6px;
+            }
+        }
+    }
+
+    // New widget placeholder
+    &.new-widget {
+        background-color: var(--control-bg);
+        color: var(--leany-text-muted);
+        border: 1px dashed var(--leany-border-strong);
+        cursor: pointer;
+        border-radius: var(--border-radius-md);
+        transition: border-color 150ms ease;
+
+        &:hover {
+            border-color: var(--leany-accent);
+        }
+    }
+}
+
+// ─── Dashboard chart widgets ────────────────────────────────
+.widget.dashboard-widget-box {
+    min-height: 240px;
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+
+    .widget-head {
+        padding: 4px 8px;
+    }
+
+    .widget-subtitle {
+        font-size: var(--text-sm);
+        color: var(--leany-text-muted);
+        margin-top: var(--margin-xs);
+    }
+
+    .chart-loading-state {
+        border-radius: var(--border-radius);
+        background-color: var(--control-bg);
+    }
+}
+
+// ─── Shortcut widgets ───────────────────────────────────────
+.widget.shortcut-widget-box {
+    cursor: pointer;
+    padding: 10px 12px;
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+    transition: border-color 100ms ease;
+
+    &:hover {
+        border-color: var(--leany-text-primary);
+
+        .widget-label .widget-title {
+            color: var(--leany-text-primary);
+        }
+    }
+
+    .widget-label .widget-title {
+        cursor: pointer;
+        font-size: var(--text-lg);
+        color: var(--leany-text-primary);
+    }
+
+    &:focus-visible {
+        text-decoration: underline;
+        background-color: var(--leany-bg-hover);
+        outline: 0;
+    }
+}
+
+// ─── Links widgets ──────────────────────────────────────────
+.widget.links-widget-box {
+    padding: 10px 12px;
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+
+    .link-item {
+        text-decoration: none;
+        font-size: var(--text-sm);
+        color: var(--leany-text-primary);
+        padding: 4px;
+        margin-left: -4px;
+        border-radius: var(--border-radius-md);
+        cursor: pointer;
+        transition: color 100ms ease;
+
+        .link-content:hover {
+            color: var(--leany-text-primary);
+        }
+
+        &:focus-visible {
+            text-decoration: underline;
+            background-color: var(--leany-bg-hover);
+            outline: 0;
+        }
+    }
+}
+
+// ─── Number card widgets ────────────────────────────────────
+.widget.number-widget-box {
+    cursor: pointer;
+    min-height: 84px;
+    padding: 12px;
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+    transition: border-color 100ms ease;
+
+    &:hover {
+        border-color: var(--leany-border-strong);
+    }
+
+    .widget-head .widget-title {
+        font-weight: var(--weight-medium);
+        font-size: var(--text-sm);
+        color: var(--leany-text-secondary);
+    }
+
+    .widget-body .widget-content {
+        .number {
+            font-size: var(--text-2xl);
+            font-weight: var(--weight-semibold);
+            color: var(--leany-text-primary);
+        }
+    }
+}
+
+// ─── Quick list widget ──────────────────────────────────────
+.widget.quick-list-widget-box {
+    .widget-body .quick-list-item {
+        padding: 3px 6px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 100ms ease;
+
+        &:hover {
+            background-color: var(--leany-bg-hover);
+        }
+    }
+}
+
+// ─── EditorJS workspace ─────────────────────────────────────
+.codex-editor {
+    .ce-block {
+        margin-bottom: var(--margin-md);
+    }
+}

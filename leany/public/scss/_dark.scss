@@ -1,0 +1,101 @@
+// Leany Design System - Dark Mode Overrides
+// Deep, high-contrast dark theme inspired by Linear's dark mode
+// Uses Frappe's actual [data-theme="dark"] selector
+// =============================================================
+
+[data-theme="dark"] {
+	// ─── Background surfaces ────────────────────────────────
+	--bg-color: #101012;
+	--fg-color: #1c1d21;
+	--control-bg: #1c1d21;
+	--control-bg-on-gray: #252629;
+	--disabled-control-bg: #1a1b1e;
+
+	// Leany-specific surfaces
+	--leany-bg-sidebar: #0a0a0b;
+	--leany-bg-elevated: #1c1d21;
+	--leany-bg-hover: rgba(255, 255, 255, 0.05);
+
+	// ─── Frappe sidebar variables (must override here too) ───
+	--sidebar-hover-color: rgba(255, 255, 255, 0.05);
+	--sidebar-active-color: rgba(255, 255, 255, 0.08);
+	--sidebar-border-color: rgba(255, 255, 255, 0.08);
+	--divider-color: rgba(255, 255, 255, 0.06);
+	--surface-menu-bar: #0a0a0b;
+
+	// ─── Borders ────────────────────────────────────────────
+	--border-color: rgba(255, 255, 255, 0.08);
+	--leany-border-subtle: rgba(255, 255, 255, 0.08);
+	--leany-border-strong: rgba(255, 255, 255, 0.12);
+	--dark-border-color: rgba(255, 255, 255, 0.12);
+
+	// ─── Text ───────────────────────────────────────────────
+	--text-color: #eeeeee;
+	--heading-color: #eeeeee;
+	--text-muted: #6b6f76;
+	--text-light: #6b6f76;
+	--leany-text-primary: #eeeeee;
+	--leany-text-secondary: #9b9ca0;
+	--leany-text-muted: #6b6f76;
+
+	// ─── Accent ─────────────────────────────────────────────
+	--leany-accent: #eeeeee;
+	--leany-accent-hover: #ffffff;
+	--btn-primary: #eeeeee;
+	--btn-primary-dark: #ffffff;
+	--btn-primary-text: #1c1c1c;
+
+	// ─── Focus ──────────────────────────────────────────────
+	--leany-focus-ring: #eeeeee;
+	--focus-default: 0 0 0 2px rgba(255, 255, 255, 0.3);
+	--focus-blue: 0 0 0 2px rgba(255, 255, 255, 0.3);
+
+	// ─── Cards ──────────────────────────────────────────────
+	--card-bg: #1c1d21;
+	--card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+	// ─── Shadows ────────────────────────────────────────────
+	--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+	--shadow-base: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.04);
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+	--shadow-lg: 0 16px 70px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+	--shadow-xl: 0 8px 30px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.06);
+	--shadow-2xl: 0 16px 70px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+	// ─── List view overrides ────────────────────────────────
+	--highlight-color: rgba(255, 255, 255, 0.03);
+	--subtle-fg: #1c1d21;
+
+	// List view tokens (dark equivalents of _variables.scss)
+	--list-header-text-color: #6b6f76;
+	--list-row-border-color: rgba(255, 255, 255, 0.06);
+	--list-row-name-color: #eeeeee;
+	--list-row-text-color: #9b9ca0;
+	--list-meta-color: #6b6f76;
+	--list-row-hover-bg: rgba(255, 255, 255, 0.04);
+	--list-row-selected-bg: rgba(255, 255, 255, 0.06);
+
+	// ─── Destructive ────────────────────────────────────────
+	--leany-destructive: #e02830;
+
+	// ─── Alerts ─────────────────────────────────────────────
+	--alert-bg-info: rgba(79, 70, 229, 0.15);
+	--alert-text-info: #a5b4fc;
+	--alert-bg-success: rgba(22, 163, 74, 0.15);
+	--alert-text-success: #86efac;
+	--alert-bg-warning: rgba(217, 119, 6, 0.15);
+	--alert-text-warning: #fcd34d;
+	--alert-bg-danger: rgba(220, 38, 38, 0.15);
+	--alert-text-danger: #fca5a5;
+
+	// ─── Scrollbar for dark ─────────────────────────────────
+	&::-webkit-scrollbar-thumb {
+		background: rgba(128, 128, 128, 0.3);
+	}
+
+	// ─── Selection ──────────────────────────────────────────
+	::selection {
+		background: rgba(255, 255, 255, 0.2);
+	}
+}

@@ -1,0 +1,144 @@
+// Leany Design System - Variables & Design Tokens
+// Overrides Frappe's Espresso tokens with Linear-inspired values
+// =============================================================
+
+// ─── Layout ─────────────────────────────────────────────────
+:root {
+	--leany-sidebar-width: 244px;
+	--leany-header-height: 44px;
+
+	// Frappe's own sidebar variables (must override these)
+	--sidebar-width: 244px;
+	--surface-menu-bar: #f2f2f2;
+
+	// Frappe's list view variables
+	--highlight-color: rgba(0, 0, 0, 0.02);
+	--subtle-fg: #f8f8f8;
+}
+
+// ─── Border Radius (replacing Frappe's Espresso _borders.scss) ──
+:root,
+[data-theme="light"] {
+	--border-radius-tiny: 3px;
+	--border-radius-sm: 5px;
+	--border-radius: 8px;
+	--border-radius-md: 8px;
+	--border-radius-lg: 16px;
+	--border-radius-full: 9999px;
+}
+
+// ─── Core Colors (Light Mode) ───────────────────────────────
+:root,
+[data-theme="light"] {
+	// Background surfaces
+	--bg-color: #fcfcfc;
+	--fg-color: #ffffff;
+	--control-bg: #f2f2f2;
+	--control-bg-on-gray: #ffffff;
+	--disabled-control-bg: #f7f7f7;
+
+	// Sidebar & navigation
+	--leany-bg-sidebar: #f2f2f2;
+	--leany-bg-elevated: #ffffff;
+	--leany-bg-hover: rgba(0, 0, 0, 0.04);
+
+	// Borders
+	--border-color: rgba(0, 0, 0, 0.09);
+	--leany-border-subtle: rgba(0, 0, 0, 0.09);
+	--leany-border-strong: rgba(0, 0, 0, 0.14);
+	--dark-border-color: rgba(0, 0, 0, 0.14);
+
+	// List view tokens
+	--list-header-height: 40px;
+	--list-header-text-color: #9ca3af;
+	--list-header-font-size: 11.5px;
+	--list-row-min-height: 48px;
+	--list-row-border-color: #f0f0f0;
+	--list-row-name-color: #1f2937;
+	--list-row-text-color: #6b7280;
+	--list-row-font-size: 13.5px;
+	--list-meta-color: #9ca3af;
+	--list-row-hover-bg: #fafafa;
+	--list-row-selected-bg: #f8fafc;
+
+	// Text
+	--text-color: #191a1b;
+	--heading-color: #191a1b;
+	--text-muted: #555960;
+	--text-light: #8b8e95;
+	--leany-text-primary: #191a1b;
+	--leany-text-secondary: #555960;
+	--leany-text-muted: #8b8e95;
+
+	// Accent & primary
+	--leany-accent: #1c1c1c;
+	--leany-accent-hover: #333333;
+	--btn-primary: #1c1c1c;
+	--btn-primary-dark: #333333;
+	--btn-primary-text: #ffffff;
+
+	// Focus
+	--leany-focus-ring: #1c1c1c;
+
+	// Cards
+	--card-bg: #ffffff;
+	--card-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+	// Alerts (keep semantic, refine subtlety)
+	--alert-bg-info: #eef2ff;
+	--alert-text-info: #4338ca;
+	--alert-bg-success: #f0fdf4;
+	--alert-text-success: #166534;
+	--alert-bg-warning: #fffbeb;
+	--alert-text-warning: #92400e;
+	--alert-bg-danger: #fef2f2;
+	--alert-text-danger: #991b1b;
+
+	// Destructive
+	--leany-destructive: #e02830;
+}
+
+// ─── Shadows (Light Mode - Multi-layer Linear-style) ────────
+:root,
+[data-theme="light"] {
+	--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+	--shadow-base: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+	--shadow-lg: 0 16px 70px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+	--shadow-xl: 0 6px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.05);
+	--shadow-2xl: 0 16px 70px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.06);
+
+	// Focus rings
+	--focus-default: 0 0 0 2px rgba(28, 28, 28, 0.3);
+	--focus-blue: 0 0 0 2px rgba(28, 28, 28, 0.3);
+}
+
+// ─── Spacing (4px grid, override Frappe padding/margin vars) ─
+:root {
+	--padding-xs: 4px;
+	--padding-sm: 8px;
+	--padding-md: 12px;
+	--padding-lg: 16px;
+	--padding-xl: 24px;
+	--padding-2xl: 32px;
+
+	--margin-xs: 4px;
+	--margin-sm: 8px;
+	--margin-md: 12px;
+	--margin-lg: 16px;
+	--margin-xl: 24px;
+	--margin-2xl: 32px;
+}
+
+// ─── Input & Form ───────────────────────────────────────────
+:root {
+	--input-height: 32px;
+	--input-padding: 6px 12px;
+	--checkbox-size: 14px;
+}
+
+// ─── Navbar ─────────────────────────────────────────────────
+:root {
+	--navbar-height: 44px;
+}

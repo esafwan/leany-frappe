@@ -1,0 +1,50 @@
+// Leany Design System Bundle
+// Linear-inspired design overrides for Frappe Desk
+// =============================================================
+//
+// This bundle is loaded via app_include_css in hooks.py.
+// It overrides Frappe's Espresso design tokens and component
+// styles to achieve a clean, minimal, Linear-inspired look.
+//
+// Import order matters: variables first, then components,
+// then dark mode overrides last.
+// =============================================================
+
+// ─── 1. Design Tokens & Variables ───────────────────────────
+@import "variables";
+
+// ─── 2. Typography ──────────────────────────────────────────
+@import "typography";
+
+// ─── 3. Scrollbar ───────────────────────────────────────────
+@import "scrollbar";
+
+// ─── 4. Animations ──────────────────────────────────────────
+@import "animations";
+
+// ─── 5. Core Layout & Page ──────────────────────────────────
+@import "page";
+
+// ─── 6. Component Overrides ─────────────────────────────────
+@import "buttons";
+@import "forms";
+@import "navbar";
+@import "sidebar";
+@import "modals";
+@import "cards";
+@import "lists";
+@import "alerts";
+
+// ─── 7. Views ───────────────────────────────────────────────
+@import "workspace";
+@import "kanban";
+@import "timeline";
+
+// ─── 8. Notifications & Toasts ──────────────────────────────
+@import "notifications";
+
+// ─── 9. Utilities ───────────────────────────────────────────
+@import "utilities";
+
+// ─── 10. Dark Mode (must be last to override) ───────────────
+@import "dark";

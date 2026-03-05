@@ -1,0 +1,80 @@
+// Leany Design System - Animations & Transitions
+// Subtle, purposeful animations inspired by Linear
+// =============================================================
+
+// ─── Keyframes ──────────────────────────────────────────────
+@keyframes leany-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes leany-fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes leany-scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.96);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes leany-slide-up-fade {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes leany-slide-down-fade {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// ─── Modal open animation ───────────────────────────────────
+.modal.show .modal-dialog {
+	animation: leany-scale-in 200ms ease;
+}
+
+// ─── Dropdown animation ─────────────────────────────────────
+.dropdown-menu.show {
+	animation: leany-slide-up-fade 100ms ease;
+}
+
+// ─── Toast / Alert animation ────────────────────────────────
+.toast {
+	animation: leany-slide-up-fade 200ms ease;
+}
+
+// ─── Page transition ────────────────────────────────────────
+.page-container {
+	animation: leany-fade-in 150ms ease;
+}
+
+// ─── General transition utilities ───────────────────────────
+.leany-transition-fast {
+	transition: all 100ms ease;
+}
+
+.leany-transition {
+	transition: all 150ms ease;
+}
+
+.leany-transition-slow {
+	transition: all 250ms ease;
+}

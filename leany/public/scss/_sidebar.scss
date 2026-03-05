@@ -1,0 +1,145 @@
+// Leany Design System - Sidebar Overrides
+// Linear-inspired sidebar targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/sidebar.scss
+// HTML template: frappe/public/js/frappe/ui/sidebar/sidebar.html
+// =============================================================
+
+// ─── Override Frappe's sidebar CSS variables ────────────────
+:root {
+	--sidebar-hover-color: var(--leany-bg-hover);
+	--sidebar-active-color: var(--leany-bg-hover);
+	--sidebar-border-color: var(--leany-border-subtle);
+	--divider-color: var(--leany-border-subtle);
+	--sidebar-width: var(--leany-sidebar-width);
+}
+
+[data-theme="dark"] {
+	--sidebar-hover-color: var(--leany-bg-hover);
+	--sidebar-active-color: var(--leany-bg-hover);
+	--sidebar-border-color: var(--leany-border-subtle);
+	--divider-color: var(--leany-border-subtle);
+}
+
+// ─── Sidebar panel ──────────────────────────────────────────
+.body-sidebar {
+	background: var(--leany-bg-sidebar);
+	border-right: 1px solid var(--leany-border-subtle);
+	padding: 8px;
+}
+
+// ─── Sidebar item (the main interactive element) ────────────
+.body-sidebar .standard-sidebar-item {
+	margin-bottom: 1px;
+
+	// The anchor link inside each item
+	.item-anchor {
+		border-radius: var(--border-radius-sm);
+		color: var(--leany-text-secondary);
+		gap: 10px;
+		padding: 5px 8px;
+		transition: all 100ms ease;
+		text-decoration: none;
+		height: 30px;
+	}
+
+	// Icon styling
+	.sidebar-item-icon {
+		padding: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.6;
+		transition: opacity 150ms ease;
+
+		svg {
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	// Label text
+	.sidebar-item-label {
+		font-size: var(--text-base);
+		font-weight: var(--weight-regular);
+		color: var(--leany-text-secondary);
+	}
+
+	// Hover state (Frappe uses a mixin, we override the variable)
+	&:not(.active-sidebar):has(a:not(.section-break)):hover {
+		.item-anchor {
+			color: var(--leany-text-primary);
+		}
+		.sidebar-item-icon {
+			opacity: 0.9;
+		}
+		.sidebar-item-label {
+			color: var(--leany-text-primary);
+		}
+	}
+}
+
+// ─── Active sidebar item ────────────────────────────────────
+.active-sidebar {
+	background: var(--leany-bg-hover);
+	box-shadow: var(--shadow-sm);
+	border-radius: var(--border-radius-sm);
+
+	.item-anchor {
+		color: var(--leany-text-primary);
+	}
+
+	.sidebar-item-icon {
+		opacity: 1;
+	}
+
+	.sidebar-item-label {
+		color: var(--leany-text-primary);
+		font-weight: var(--weight-medium);
+	}
+}
+
+// ─── Section break (group headers) ─────────────────────────
+.section-break {
+	font-size: 11px;
+	font-weight: var(--weight-semibold);
+	color: var(--leany-text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-top: 8px;
+	opacity: 0.7;
+}
+
+// ─── Sidebar divider ────────────────────────────────────────
+.body-sidebar .divider {
+	border-top: 1px solid var(--leany-border-subtle);
+	margin: var(--margin-xs) 0;
+}
+
+// ─── Sidebar bottom (collapse link, user area) ─────────────
+.body-sidebar .body-sidebar-bottom {
+	.collapse-sidebar-link,
+	.onboarding-sidebar {
+		color: var(--leany-text-muted);
+		font-size: var(--text-sm);
+		transition: color 100ms ease;
+
+		&:hover {
+			color: var(--leany-text-primary);
+		}
+	}
+}
+
+// ─── Sidebar badge / suffix ─────────────────────────────────
+.sidebar-item-suffix {
+	.keyboard-shortcut {
+		color: var(--leany-text-muted);
+		font-size: var(--text-sm);
+	}
+}
+
+// ─── Expanded state width ───────────────────────────────────
+.body-sidebar-container.expanded {
+	.body-sidebar {
+		width: var(--leany-sidebar-width);
+	}
+}

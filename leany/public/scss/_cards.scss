@@ -1,0 +1,72 @@
+// Leany Design System - Card & Container Overrides
+// Clean elevated surfaces with subtle shadows
+// =============================================================
+
+// ─── Frappe card ────────────────────────────────────────────
+.frappe-card {
+	background-color: var(--leany-bg-elevated);
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-sm);
+	transition: border-color 200ms ease;
+
+	&:hover {
+		border-color: var(--leany-border-strong);
+	}
+}
+
+// ─── Bootstrap card ─────────────────────────────────────────
+.card {
+	background-color: var(--leany-bg-elevated);
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-sm);
+
+	.card-header {
+		background: transparent;
+		border-bottom: 1px solid var(--leany-border-subtle);
+		padding: 12px 16px;
+		font-weight: var(--weight-semibold);
+		font-size: var(--text-md);
+	}
+
+	.card-body {
+		padding: 16px;
+	}
+
+	.card-footer {
+		background: transparent;
+		border-top: 1px solid var(--leany-border-subtle);
+		padding: 12px 16px;
+	}
+}
+
+// ─── Widget / Dashboard cards ───────────────────────────────
+.widget {
+	background-color: var(--leany-bg-elevated);
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-sm);
+
+	.widget-head {
+		padding: 12px 16px;
+		border-bottom: 1px solid var(--leany-border-subtle);
+
+		.widget-label {
+			font-weight: var(--weight-semibold);
+			font-size: var(--text-md);
+			color: var(--leany-text-primary);
+		}
+	}
+
+	.widget-body {
+		padding: 16px;
+	}
+}
+
+// ─── Onboarding card ────────────────────────────────────────
+.onboarding-card {
+	border-radius: var(--border-radius-md);
+	border: 1px solid var(--leany-border-subtle);
+	box-shadow: var(--shadow-sm);
+}

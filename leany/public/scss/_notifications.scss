@@ -1,0 +1,107 @@
+// Leany Design System - Toast / Notification Overrides
+// Clean toasts and notifications targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/toast.scss, notification.scss
+// =============================================================
+
+// ─── Alert container ────────────────────────────────────────
+#alert-container {
+    z-index: 1050;
+}
+
+// ─── Desk alert (toast) ─────────────────────────────────────
+.desk-alert {
+    width: 400px;
+    min-height: 50px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow-y: auto;
+
+    .alert-message-container {
+        padding: var(--padding-md);
+        padding-right: var(--padding-2xl);
+
+        .alert-message {
+            font-weight: var(--weight-medium);
+            color: var(--leany-text-primary);
+            line-height: 20px;
+        }
+
+        .alert-subtitle {
+            font-size: var(--text-md);
+            color: var(--leany-text-muted);
+        }
+    }
+
+    .close .icon {
+        fill: var(--leany-text-muted);
+    }
+
+    .next-action-container .next-action {
+        border: none;
+        background: none;
+        border-top: 1px solid var(--leany-border-subtle);
+        border-right: 1px solid var(--leany-border-subtle);
+        padding: var(--padding-sm);
+        color: var(--leany-text-muted);
+        font-weight: var(--weight-medium);
+        transition: color 100ms ease;
+
+        &:hover {
+            color: var(--leany-text-primary);
+        }
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+}
+
+// ─── Notifications panel ────────────────────────────────────
+.notifications-list {
+    background-color: var(--leany-bg-elevated);
+    border: 1px solid var(--leany-border-subtle);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+
+    .notification-list-header {
+        border-bottom: 1px solid var(--leany-border-subtle);
+        padding: var(--padding-sm) var(--padding-md);
+    }
+
+    .notification-item-tabs .notifications-category {
+        font-size: var(--text-sm);
+        font-weight: var(--weight-medium);
+        color: var(--leany-text-secondary);
+        transition: color 100ms ease;
+
+        &:hover {
+            color: var(--leany-text-primary);
+        }
+    }
+}
+
+// ─── Notification item ──────────────────────────────────────
+.recent-item.notification-item {
+    border-bottom: 1px solid var(--leany-border-subtle);
+    transition: background-color 100ms ease;
+
+    &:hover {
+        background-color: var(--leany-bg-hover);
+    }
+
+    .notification-body {
+        font-size: var(--text-base);
+        color: var(--leany-text-primary);
+    }
+
+    .notification-timestamp {
+        font-size: var(--text-xs);
+        color: var(--leany-text-muted);
+    }
+}
+
+// ─── Notification null state ────────────────────────────────
+.notification-null-state {
+    color: var(--leany-text-muted);
+    padding: var(--padding-xl);
+}

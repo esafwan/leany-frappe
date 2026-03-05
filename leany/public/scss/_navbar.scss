@@ -1,0 +1,183 @@
+// Leany Design System - Navbar Overrides
+// Clean, minimal navbar targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/navbar.scss
+// =============================================================
+
+// ─── Main navbar ────────────────────────────────────────────
+.navbar {
+	height: var(--navbar-height);
+	min-height: var(--navbar-height);
+	background: var(--bg-color);
+	border-bottom: 1px solid var(--leany-border-subtle);
+	box-shadow: none;
+	padding: 0;
+
+	.container {
+		padding: 0 1rem;
+	}
+
+	// Nav items
+	.nav-item {
+		margin: auto;
+		margin-left: var(--margin-md);
+	}
+
+	// Nav links
+	.navbar-nav .nav-link {
+		padding: 0;
+		color: var(--leany-text-secondary);
+		transition: color 100ms ease;
+
+		&:hover {
+			color: var(--leany-text-primary);
+		}
+	}
+
+	// Dropdown items inside navbar
+	.navbar-nav .dropdown-item {
+		padding: 6px 8px;
+		font-size: var(--text-base);
+		color: var(--leany-text-primary);
+
+		&:hover {
+			background-color: var(--leany-bg-hover);
+		}
+	}
+
+	.vertical-bar {
+		border-right: 1px solid var(--leany-border-subtle);
+	}
+}
+
+// ─── Navbar brand ───────────────────────────────────────────
+.navbar-brand {
+	font-weight: var(--weight-semibold);
+	font-size: var(--text-md);
+	color: var(--leany-text-primary);
+}
+
+.navbar-home img {
+	height: 32px;
+	width: 32px;
+}
+
+// ─── Search bar (awesomebar in navbar) ──────────────────────
+// Fix: icon spacing and padding alignment
+.search-bar {
+	max-width: 300px;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	// The search icon (magnifying glass)
+	.search-icon {
+		background-color: var(--control-bg);
+		border-radius: var(--border-radius);
+		padding: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	svg {
+		stroke: var(--leany-text-muted);
+		width: 14px;
+		height: 14px;
+	}
+
+	.awesomplete {
+		width: 100%;
+
+		input {
+			width: 100% !important;
+			padding-left: 32px;
+			height: 28px;
+			background-color: var(--control-bg);
+			border: 1px solid transparent;
+			border-radius: var(--border-radius-sm);
+			font-size: var(--text-sm);
+			color: var(--leany-text-primary);
+			transition: all 150ms ease;
+
+			&:focus {
+				background-color: var(--leany-bg-elevated);
+				border-color: var(--leany-border-strong);
+				box-shadow: var(--focus-default);
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			&::placeholder {
+				color: var(--leany-text-muted);
+			}
+		}
+
+		ul {
+			border: none;
+			border-top: 1px solid var(--leany-border-subtle);
+			border-radius: 0 0 var(--border-radius) var(--border-radius);
+			box-shadow: var(--shadow-2xl);
+			background-color: var(--leany-bg-elevated);
+		}
+	}
+}
+
+// ─── Page head / title bar ──────────────────────────────────
+.page-head {
+	height: var(--page-head-height);
+	min-height: var(--page-head-height);
+	z-index: 6;
+	position: sticky;
+	top: 0;
+	background: var(--bg-color);
+	border-bottom: 1px solid var(--leany-border-subtle);
+	transition: 0.5s top;
+
+	.page-head-content {
+		height: var(--page-head-height);
+		padding: 8px 0px;
+		gap: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+// ─── Page title ─────────────────────────────────────────────
+.page-head .title-text,
+.page-head .page-title {
+	font-size: var(--text-md);
+	font-weight: var(--weight-semibold);
+	color: var(--leany-text-primary);
+	margin: 0;
+}
+
+// ─── Breadcrumbs ────────────────────────────────────────────
+.breadcrumb {
+	margin: 0;
+	padding: 0;
+	background: none;
+	font-size: var(--text-sm);
+
+	.breadcrumb-item {
+		color: var(--leany-text-muted);
+
+		a {
+			color: var(--leany-text-muted);
+			text-decoration: none;
+
+			&:hover {
+				color: var(--leany-text-primary);
+			}
+		}
+
+		&.active {
+			color: var(--leany-text-secondary);
+		}
+
+		+.breadcrumb-item::before {
+			color: var(--leany-text-muted);
+			opacity: 0.5;
+		}
+	}
+}

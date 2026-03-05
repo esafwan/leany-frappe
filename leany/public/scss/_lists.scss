@@ -1,0 +1,407 @@
+// Leany Design System - List View Overrides
+// Clean list rows matching the reference design
+// Source reference: frappe/public/scss/desk/list.scss
+// Design: transparent header, 48px rows, individual-bordered paging buttons
+// =============================================================
+
+// ─── List wrapper — boxed in a card ─────────────────────────
+// The card is split between .result (top + sides) and
+// .list-paging-area (sides + bottom), because Frappe's JS
+// appends .list-paging-area as a sibling of .result-container,
+// not inside it. This CSS trick joins them visually.
+.frappe-list {
+	margin: 0;
+	margin-bottom: 5px;
+
+	// Result gets top border + sides + top border-radius only
+	.result-container {
+		.result {
+			overflow-y: hidden;
+			border: 1px solid var(--leany-border-subtle);
+			border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+			border-bottom: none; // paging area provides the bottom
+			overflow: hidden;
+			background-color: var(--fg-color);
+
+			// First row-container (header) is top of the card
+			.list-row-container:first-child {
+				border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+			}
+
+			// Last row-container — no bottom radius (paging continues)
+			.list-row-container:last-child {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+// ─── List view wrapper ──────────────────────────────────────
+.list-view {
+	.frappe-list .result-container {
+		overflow-x: auto;
+	}
+}
+
+// ─── List row container ─────────────────────────────────────
+.list-row-container {
+	border-radius: 0;
+	border-bottom: 1px solid var(--list-row-border-color);
+	padding-inline: var(--padding-sm);
+	transition: background-color 100ms ease;
+
+	// Unified hover state from the container level
+	&:hover:not(:first-child) {
+		background-color: var(--list-row-hover-bg) !important;
+
+		.list-row,
+		.level-left,
+		.list-row-col {
+			background-color: transparent !important;
+		}
+
+		.level-right {
+			background-color: var(--list-row-hover-bg) !important;
+			box-shadow: none !important;
+		}
+	}
+
+	&:focus {
+		background-color: var(--list-row-hover-bg);
+
+		.list-row {
+			background-color: transparent;
+		}
+	}
+
+	// First container (header) — no hover/padding override
+	&:first-child {
+		padding: 0;
+		border-bottom: 1px solid var(--leany-border-subtle);
+
+		&:hover {
+			background-color: transparent !important;
+		}
+	}
+}
+
+// ─── List row (data rows) ───────────────────────────────────
+.list-row {
+	border-bottom: 1px solid var(--list-row-border-color);
+	cursor: pointer;
+	transition: background-color 100ms ease;
+	min-height: var(--list-row-min-height);
+
+	.level-left {
+		padding: var(--padding-xs) 0;
+		min-height: var(--list-row-min-height);
+		align-items: center;
+	}
+
+	// Right-side sticky column (activity: like, time, comments)
+	.level-right {
+		background-color: var(--fg-color);
+		border-left: none;
+		padding: var(--padding-xs) 10px;
+		transition: background-color 100ms ease;
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	// Nullify Frappe's native list-row hover
+	&:hover,
+	&:hover:not(.list-row-head) {
+		background-color: transparent !important;
+
+		.level-right {
+			background-color: var(--list-row-hover-bg) !important;
+			box-shadow: none !important;
+		}
+	}
+
+	// Activity column (modified date, assignments, comments)
+	.list-row-activity {
+		justify-content: flex-end;
+
+		.frappe-timestamp {
+			font-size: var(--list-meta-color);
+			font-size: var(--text-xs);
+			color: var(--list-meta-color);
+			white-space: nowrap;
+		}
+
+		.modified {
+			margin-right: var(--margin-sm);
+		}
+
+		.comment-count {
+			min-width: 35px;
+			color: var(--list-meta-color);
+		}
+
+		// Like/assign icons
+		.list-assignments,
+		.list-actions {
+			margin-right: var(--margin-md);
+			color: var(--list-meta-color);
+		}
+
+		.like-action {
+			.icon use {
+				stroke: var(--list-meta-color);
+			}
+		}
+	}
+}
+
+// ─── List subject (document name link) ──────────────────────
+.list-subject {
+	a {
+		color: var(--list-row-name-color);
+		font-weight: var(--weight-medium);
+		font-size: var(--list-row-font-size);
+	}
+
+	&.seen {
+		font-weight: normal;
+
+		a {
+			font-weight: normal;
+		}
+	}
+}
+
+// ─── List row columns ──────────────────────────────────────
+.list-row-col {
+	font-size: var(--list-row-font-size);
+
+	a {
+		color: var(--list-row-text-color);
+	}
+
+	// Plain text in columns
+	.ellipsis,
+	.text-muted {
+		color: var(--list-row-text-color);
+	}
+}
+
+// ─── List header row ────────────────────────────────────────
+.list-row-head {
+	background-color: transparent;
+	border-radius: 0;
+	border-bottom: none; // Container handles the border
+	height: var(--list-header-height);
+	padding-inline: var(--padding-sm);
+
+	.list-subject {
+		font-weight: 500;
+		font-size: var(--list-header-font-size);
+		color: var(--list-header-text-color);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.list-row-col {
+		font-weight: 500;
+		font-size: var(--list-header-font-size);
+		color: var(--list-header-text-color);
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.level-right {
+		background-color: transparent;
+		border-left: none;
+		height: auto;
+		display: flex;
+		align-items: center;
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		// Count text (e.g. "3 of 3") in the header
+		.level-item {
+			font-size: 12px;
+			color: var(--list-row-text-color);
+			font-weight: 500;
+		}
+	}
+
+	&:hover .level-right {
+		background-color: transparent;
+	}
+}
+
+// ─── Checkboxes ─────────────────────────────────────────────
+input.list-row-checkbox,
+input.list-header-checkbox {
+	background-color: var(--card-bg);
+	border: 1.5px solid var(--leany-border-strong);
+	border-radius: var(--border-radius-tiny);
+}
+
+// ─── Report view / datatable ────────────────────────────────
+.dt-scrollable {
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-md);
+	overflow: hidden;
+}
+
+.dt-cell {
+	border-color: var(--leany-border-subtle);
+	font-size: var(--text-base);
+	padding: 6px 12px;
+}
+
+.dt-header .dt-cell {
+	background-color: var(--bg-color);
+	font-weight: var(--weight-semibold);
+	font-size: var(--text-sm);
+	color: var(--leany-text-secondary);
+}
+
+// ─── Grid (child table inside forms) ────────────────────────
+.frappe-control[data-fieldtype="Table"] {
+	.grid-heading-row {
+		background-color: var(--bg-color);
+		border-bottom: 1px solid var(--leany-border-subtle);
+
+		.static-area {
+			font-size: var(--text-sm);
+			font-weight: var(--weight-semibold);
+			color: var(--leany-text-muted);
+			text-transform: uppercase;
+			letter-spacing: 0.03em;
+		}
+	}
+
+	.rows .row {
+		border-bottom: 1px solid var(--leany-border-subtle);
+		transition: background-color 100ms ease;
+
+		&:hover {
+			background-color: var(--leany-bg-hover);
+		}
+	}
+}
+
+// ─── Tags / indicator pills ────────────────────────────────
+.tag-pill,
+.list-row-col .indicator-pill {
+	font-size: 10px;
+	font-weight: var(--weight-medium);
+	color: var(--leany-text-muted);
+	background-color: var(--leany-bg-sidebar);
+	border: 1px solid var(--leany-border-subtle);
+	padding: 2px 6px;
+	border-radius: 3px;
+	line-height: 1.2;
+	max-width: 150px;
+}
+
+// ─── Status indicator pills (Active/Disabled etc.) ──────────
+// Light mode badge colors
+.indicator-pill {
+	&.green {
+		background: var(--alert-bg-success);
+		color: var(--alert-text-success);
+		border: 1px solid currentColor;
+		border-color: rgba(0, 0, 0, 0.08);
+	}
+
+	&.red {
+		background: var(--alert-bg-danger);
+		color: var(--alert-text-danger);
+		border: 1px solid currentColor;
+		border-color: rgba(0, 0, 0, 0.08);
+	}
+
+	&.orange {
+		background: var(--alert-bg-warning);
+		color: var(--alert-text-warning);
+		border: 1px solid currentColor;
+		border-color: rgba(0, 0, 0, 0.08);
+	}
+
+	&.blue {
+		background: var(--alert-bg-info);
+		color: var(--alert-text-info);
+		border: 1px solid currentColor;
+		border-color: rgba(0, 0, 0, 0.08);
+	}
+}
+
+// ─── Liked by (heart icon) ─────────────────────────────────
+.list-liked-by-me {
+	.icon use {
+		stroke: var(--list-meta-color);
+	}
+}
+
+// ─── Paging area ────────────────────────────────────────────
+// ─── Paging area — visually joins the card bottom ───────────
+// Gets side borders + bottom border + bottom radius to connect
+// with .result which only has top border + sides + top radius.
+.list-paging-area,
+.footnote-area {
+	border: 1px solid var(--leany-border-subtle);
+	border-top: 1px solid var(--leany-border-subtle);
+	border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+	padding: 10px 16px;
+	background-color: var(--fg-color);
+
+	// Override the pill-style btn-group from _buttons.scss
+	.btn-group {
+		background-color: transparent !important;
+		border: none !important;
+		padding: 0 !important;
+		display: flex;
+		gap: 4px;
+	}
+
+	.btn-paging {
+		background-color: var(--fg-color);
+		border: 1px solid var(--leany-border-subtle) !important;
+		border-radius: 4px !important;
+		color: var(--list-row-text-color);
+		font-size: 12px;
+		padding: 4px 10px;
+		height: auto;
+
+		&.btn-info {
+			background-color: var(--control-bg) !important;
+			color: var(--leany-text-primary);
+			font-weight: 600;
+			border: 1px solid var(--leany-border-subtle) !important;
+		}
+	}
+
+	// Load More button
+	.btn-more {
+		border: 1px solid var(--leany-border-subtle) !important;
+		border-radius: 4px !important;
+		background: var(--fg-color);
+		color: var(--leany-text-primary);
+		font-size: 12px;
+		font-weight: 500;
+		padding: 6px 16px;
+		box-shadow: none !important;
+	}
+}
+
+.layout-main-list {
+
+	.list-paging-area,
+	.footnote-area {
+		padding: 10px 16px;
+	}
+}
+
+// ─── List item table (inside dialogs etc.) ──────────────────
+.list-item-table {
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius);
+}

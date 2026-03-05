@@ -1,0 +1,285 @@
+// Leany Design System - Form & Input Overrides
+// Clean, minimal inputs inspired by Linear
+// Source reference: frappe/public/scss/common/form.scss, controls.scss
+// Design ref: leany-ref input.tsx - transparent bg, border on focus
+// =============================================================
+
+// ─── Form control (inputs, selects, textareas) ──────────────
+// Key fix: inputs need a VISIBLE border at rest, not transparent
+.form-control,
+.frappe-control .form-control {
+	height: var(--input-height);
+	font-size: var(--text-base);
+	font-family: var(--font-stack);
+	padding: var(--input-padding);
+	background-color: var(--control-bg);
+	border: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-sm);
+	color: var(--leany-text-primary);
+	transition: all 150ms ease;
+
+	&::placeholder {
+		color: var(--leany-text-muted);
+	}
+
+	&:focus,
+	&:focus-visible {
+		background-color: var(--leany-bg-elevated);
+		border-color: var(--leany-border-strong);
+		box-shadow: var(--focus-default);
+		outline: none;
+	}
+
+	&:hover:not(:focus):not(:disabled):not([readonly]) {
+		border-color: var(--leany-border-strong);
+	}
+}
+
+// ─── Disabled inputs ────────────────────────────────────────
+.form-control:disabled,
+.form-control[readonly],
+.like-disabled-input {
+	background-color: var(--disabled-control-bg);
+	border-color: var(--leany-border-subtle);
+	color: var(--leany-text-muted);
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+// ─── Select — fix double icon issue ─────────────────────────
+// Frappe's controls.scss adds appearance:none.
+// We add our own chevron. This replaces any browser default.
+select.form-control,
+.frappe-control select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding-right: 28px;
+	// Single chevron-down only
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%238b8e95' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	background-size: 16px;
+	border: 1px solid var(--leany-border-subtle);
+}
+
+// Hide Frappe's default select indicator if it adds one via ::after
+.frappe-control[data-fieldtype="Select"] {
+	.control-input-wrapper {
+		position: relative;
+
+		// Remove any pseudo-element chevron Frappe might add
+		&::after {
+			display: none !important;
+		}
+	}
+
+	// Hide the SVG select icon that Frappe renders
+	.select-icon {
+		display: none;
+	}
+}
+
+// ─── Textarea ───────────────────────────────────────────────
+textarea.form-control {
+	min-height: 80px;
+	height: auto;
+	resize: vertical;
+	border: 1px solid var(--leany-border-subtle);
+}
+
+// ─── Form labels ────────────────────────────────────────────
+.frappe-control .control-label,
+.form-group label,
+label.control-label {
+	font-size: var(--text-sm);
+	font-weight: var(--weight-medium);
+	color: var(--leany-text-secondary);
+	margin-bottom: 4px;
+	letter-spacing: 0;
+}
+
+// ─── Help text ──────────────────────────────────────────────
+.help-box,
+.form-text,
+.control-help {
+	font-size: var(--text-xs);
+	color: var(--leany-text-muted);
+	margin-top: 4px;
+}
+
+// ─── Form sections — fix accordion double lines ─────────────
+// Frappe's .form-section.card-section adds border-bottom.
+// .section-head also inherits borders. We consolidate.
+.form-section {
+	margin-bottom: 0;
+	padding: 0 var(--padding-md);
+
+	.section-head {
+		font-size: var(--text-md);
+		font-weight: var(--weight-medium);
+		color: var(--leany-text-primary);
+		padding: var(--padding-md);
+		cursor: default;
+		border-bottom: none; // remove inner border to avoid doubling
+
+		.collapse-indicator {
+			color: var(--leany-text-muted);
+		}
+	}
+
+	.section-head.collapsible {
+		cursor: pointer;
+	}
+
+	// When collapsed, no bottom margin
+	.section-head.collapsed {
+		margin-bottom: 0;
+	}
+
+	.section-body {
+		padding-top: var(--padding-sm);
+	}
+}
+
+// Card sections — single border, no doubling
+.form-section.card-section,
+.form-dashboard-section {
+	border-bottom: 1px solid var(--leany-border-subtle);
+}
+
+.form-tab-content .form-section.card-section:last-child,
+.form-tab-content .form-dashboard-section:last-child {
+	border-bottom: none;
+}
+
+.form-section.card-section.hide-border {
+	border-bottom: none;
+}
+
+// ─── Form page & layout — fix full width ────────────────────
+// The form should take full width. The right side white space
+// comes from the default max-width constraint.
+.std-form-layout>.form-layout>.form-page {
+	box-shadow: none;
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius-md);
+}
+
+.form-page {
+	padding: 16px 20px;
+}
+
+// ─── Form footer ────────────────────────────────────────────
+.form-footer {
+	padding: 0 15px;
+	margin: auto;
+	margin-top: 15px;
+}
+
+// ─── Frappe control wrapper ─────────────────────────────────
+.frappe-control {
+	margin-bottom: 12px;
+
+	.control-input-wrapper {
+		position: relative;
+	}
+
+	// Link field clear button
+	.link-btn {
+		opacity: 0;
+		transition: opacity 150ms ease;
+	}
+
+	&:hover .link-btn {
+		opacity: 1;
+	}
+}
+
+// ─── Checkbox & toggle ──────────────────────────────────────
+.checkbox {
+	.check-icon {
+		width: var(--checkbox-size);
+		height: var(--checkbox-size);
+		border-radius: var(--border-radius-tiny);
+		border: 1.5px solid var(--leany-border-strong);
+		transition: all 100ms ease;
+	}
+
+	input:checked+.check-icon {
+		background-color: var(--leany-accent);
+		border-color: var(--leany-accent);
+	}
+}
+
+// ─── Link field dropdown (awesomplete) ──────────────────────
+// This is the dropdown that appears when you click a Link field.
+// Source: frappe/public/scss/common/awesomeplete.scss
+.awesomplete>[role="listbox"] {
+	background-color: var(--leany-bg-elevated);
+	border: 1px solid var(--leany-border-strong);
+	border-radius: var(--border-radius-md);
+	box-shadow: var(--shadow-xl);
+	padding: var(--padding-xs);
+	margin-top: 4px;
+
+	>li,
+	>[role="option"] {
+		font-size: var(--text-sm);
+		color: var(--leany-text-primary);
+		padding: 6px 8px;
+		border-radius: var(--border-radius-sm);
+		cursor: pointer;
+		transition: background-color 100ms ease;
+
+		&:hover,
+		&[aria-selected="true"] {
+			background-color: var(--leany-bg-hover);
+			color: var(--leany-text-primary);
+		}
+
+		.link-option {
+			font-weight: normal;
+			color: var(--leany-text-secondary);
+		}
+
+		strong {
+			font-weight: var(--weight-semibold);
+		}
+	}
+}
+
+// ─── Form tabs ──────────────────────────────────────────────
+.form-tabs-list {
+	background-color: var(--card-bg);
+	border-bottom: 1px solid var(--leany-border-subtle);
+	border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+
+	.form-tabs .nav-item .nav-link {
+		color: var(--leany-text-muted);
+		padding: 10px 0;
+		border: 0;
+		font-size: var(--text-base);
+
+		&.active {
+			color: var(--leany-text-primary);
+			border-bottom: 1px solid var(--leany-text-primary);
+			font-weight: var(--weight-medium);
+		}
+	}
+}
+
+// ─── Validation states ──────────────────────────────────────
+.has-error .form-control,
+.form-control.is-invalid {
+	border-color: var(--leany-destructive);
+
+	&:focus {
+		box-shadow: 0 0 0 2px rgba(224, 40, 48, 0.2);
+	}
+}
+
+.has-success .form-control,
+.form-control.is-valid {
+	border-color: #16a34a;
+}

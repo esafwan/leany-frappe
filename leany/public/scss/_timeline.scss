@@ -1,0 +1,100 @@
+// Leany Design System - Timeline & Activity Overrides
+// Clean timeline targeting Frappe's ACTUAL selectors
+// Source reference: frappe/public/scss/desk/timeline.scss
+// =============================================================
+
+// ─── New timeline ───────────────────────────────────────────
+.new-timeline {
+    position: relative;
+    padding-top: var(--padding-lg);
+
+    // The vertical line connecting timeline items
+    &:before {
+        border-left-color: var(--leany-border-subtle);
+    }
+
+    .timeline-dot {
+        background: var(--bg-color);
+    }
+
+    [data-theme="dark"] & .timeline-dot {
+        background: #444;
+    }
+
+    // Activity title section
+    .activity-title,
+    .timeline-actions {
+        background-color: transparent !important;
+
+        h4 {
+            font-size: 16px;
+            font-weight: var(--weight-medium);
+            color: var(--leany-text-primary);
+        }
+    }
+
+    // Timeline items
+    .timeline-item {
+        b {
+            color: var(--leany-text-primary);
+            font-weight: var(--weight-medium);
+        }
+
+        .timeline-content {
+            max-width: var(--timeline-content-max-width);
+            padding: var(--padding-sm);
+
+            &.frappe-card {
+                background-color: var(--bg-color);
+                box-shadow: none;
+                border: 1px solid var(--leany-border-subtle);
+                border-radius: var(--border-radius);
+            }
+        }
+
+        .action-buttons .action-btn {
+            color: var(--leany-text-muted);
+            transition: color 100ms ease;
+
+            &:hover {
+                color: var(--leany-text-primary);
+                text-decoration: none;
+            }
+        }
+
+        // Comment message box
+        .timeline-message-box {
+            .actions>*:not(.indicator-pill) {
+                color: var(--leany-text-muted);
+            }
+
+            .action-btn {
+                background-color: transparent;
+                transition: color 100ms ease;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        // Comment edit box
+        .comment-edit-box {
+            background-color: var(--control-bg);
+            border: 1px solid var(--leany-border-subtle);
+            border-radius: var(--border-radius-sm);
+        }
+    }
+}
+
+// ─── Comment box ────────────────────────────────────────────
+.comment-box {
+    border: none !important;
+    border-radius: 0;
+    background-color: var(--fg-color);
+    transition: border-color 150ms ease;
+
+    &:focus-within {
+        border-color: var(--leany-border-strong);
+    }
+}
